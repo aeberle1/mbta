@@ -1,0 +1,52 @@
+// Place all the styles related to the Schedule controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  font-family: LatoLatinWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #fff;
+  font-size: 1.5vw;
+  background-color: #071d2e;
+  letter-spacing: .4px!important;
+}
+
+table {
+  width: 98%;
+  margin-left: 10px;
+}
+
+th.first {
+  color: #aaa;
+  padding-top: 40px;
+}
+
+.track {
+  text-align: center;
+}
+
+.dest {
+  padding-left: 30px;
+}
+
+.current-time {
+  color: #90c841;
+  text-align: right;
+}
+
+.current-day {
+  color: #90c841;
+  text-align: left;
+}
+
+.title {
+  color: #aaa;
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.departures {
+  color: #90c841
+  // color: #a1c6ed
+}
