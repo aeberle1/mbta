@@ -1,11 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Web application for displaying Boston Commuter Rail schedules for North and South stations.
 
-Things you may want to cover:
-
-* Ruby version
+* ruby '2.3.4'
 
 * System dependencies
 
