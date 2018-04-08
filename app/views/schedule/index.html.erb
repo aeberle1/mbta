@@ -1,64 +1,74 @@
-<meta http-equiv="refresh" content="10" />
+<meta http-equiv="refresh" content="30" />
 
 
 <table>
   <tr>
-    <td class="current-day"> <%= Time.at(@schedule_items[0][0].to_i).strftime("%A") %> </th>
+    <td class="current-day"> <%= Time.now.strftime("%A") %> </th>
     <td class="title"> BOSTON COMMUTER RAIL DEPARTURES </th>
     <td class="current-time"> CURRENT TIME </th>
   </tr>
   <tr>
-    <td class="current-day"> <%= Time.at(@schedule_items[0][0].to_i).strftime("%v") %> </th>
+    <td class="current-day"> <%= Time.now.strftime("%v") %> </th>
     <td>  </th>
-    <td class="current-time"> <%= Time.at(@schedule_items[0][0].to_i).strftime("%l:%M %p") %> </th>
+    <td class="current-time"> <%= Time.now.strftime("%l:%M %p") %> </th>
   </tr>
 </table>
 
+<% if @error %>
 
-<table>
-  <tr>
-    <th class="first"> ORIGIN </th>
-    <th class="first"> TIME </th>
-    <th class="first"> LATENESS </th>
-    <th class="first"> DESTINATION </th>
-    <th class="first"> TRAIN# </th>
-    <th class="first"> TRACK# </th>
-    <th class="first"> STATUS</th>
-  </tr>
-
-  <% @north_station.each do |row| %>
-    <tr class="departures">
-      <td> <%= row[1].upcase %></td>
-      <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
-      <td class="track"> <%= row[5] %></td>
-      <td class="dest"> <%= row[3].upcase %></td>
-      <td> <%= row[2] %></td>
-      <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
-      <td class="dest"> <%= row[7].upcase %></td>
+  <table>
+    <tr>
+      <td class="error"> Departure information currently unavailable.  Try again later. </th>
     </tr>
-  <% end %>
+  </table>
+  
+<% else %>
 
-  <tr>
-    <th class="first"> ORIGIN </th>
-    <th class="first"> TIME </th>
-    <th class="first"> LATENESS </th>
-    <th class="first"> DESTINATION </th>
-    <th class="first"> TRAIN# </th>
-    <th class="first"> TRACK# </th>
-    <th class="first"> STATUS</th>
-  </tr>
-
-  <% @south_station.each do |row| %>
-    <tr class="departures">
-      <td> <%= row[1].upcase %></td>
-      <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
-      <td class="track"> <%= row[5] %></td>
-      <td class="dest"> <%= row[3].upcase %></td>
-      <td> <%= row[2] %></td>
-      <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
-      <td class="dest"> <%= row[7].upcase %></td>
+  <table>
+    <tr>
+      <th class="first"> ORIGIN </th>
+      <th class="first"> TIME </th>
+      <th class="first"> LATENESS </th>
+      <th class="first"> DESTINATION </th>
+      <th class="first"> TRAIN# </th>
+      <th class="first"> TRACK# </th>
+      <th class="first"> STATUS</th>
     </tr>
-  <% end %>
-</table>
 
+    <% @north_station.each do |row| %>
+      <tr class="departures">
+        <td> <%= row[1].upcase %></td>
+        <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
+        <td class="track"> <%= row[5] %></td>
+        <td class="dest"> <%= row[3].upcase %></td>
+        <td> <%= row[2] %></td>
+        <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
+        <td class="dest"> <%= row[7].upcase %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <th class="first"> ORIGIN </th>
+      <th class="first"> TIME </th>
+      <th class="first"> LATENESS </th>
+      <th class="first"> DESTINATION </th>
+      <th class="first"> TRAIN# </th>
+      <th class="first"> TRACK# </th>
+      <th class="first"> STATUS</th>
+    </tr>
+
+    <% @south_station.each do |row| %>
+      <tr class="departures">
+        <td> <%= row[1].upcase %></td>
+        <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
+        <td class="track"> <%= row[5] %></td>
+        <td class="dest"> <%= row[3].upcase %></td>
+        <td> <%= row[2] %></td>
+        <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
+        <td class="dest"> <%= row[7].upcase %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>
 
