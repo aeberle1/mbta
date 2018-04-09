@@ -28,7 +28,7 @@
     <tr>
       <th class="first"> ORIGIN </th>
       <th class="first"> TIME </th>
-      <th class="first"> LATENESS </th>
+      <th class="first"> LATE (mins) </th>
       <th class="first"> DESTINATION </th>
       <th class="first"> TRAIN# </th>
       <th class="first"> TRACK# </th>
@@ -39,7 +39,7 @@
       <tr class="departures">
         <td> <%= row[1].upcase %></td>
         <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
-        <td class="track"> <%= row[5] %></td>
+        <td class="track"> <%= row[5].to_i > 0 ? (row[5].to_i/60).to_s : row[5] %></td>
         <td class="dest"> <%= row[3].upcase %></td>
         <td> <%= row[2] %></td>
         <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
@@ -50,7 +50,7 @@
     <tr>
       <th class="first"> ORIGIN </th>
       <th class="first"> TIME </th>
-      <th class="first"> LATENESS </th>
+      <th class="first"> LATE (mins) </th>
       <th class="first"> DESTINATION </th>
       <th class="first"> TRAIN# </th>
       <th class="first"> TRACK# </th>
@@ -61,7 +61,7 @@
       <tr class="departures">
         <td> <%= row[1].upcase %></td>
         <td class="track"> <%= Time.at(row[4].to_i).strftime("%l:%M %p") %></td>
-        <td class="track"> <%= row[5] %></td>
+        <td class="track"> <%= row[5].to_i > 0 ? (row[5].to_i/60).to_s : row[5] %></td>
         <td class="dest"> <%= row[3].upcase %></td>
         <td> <%= row[2] %></td>
         <td class="track"> <%= row[6].nil? ? 'TBD' : row[6] %></td>
